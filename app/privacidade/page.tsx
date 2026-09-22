@@ -91,6 +91,7 @@ const sections: LegalSection[] = [
     ],
     bullets: [
       'Supabase — banco de dados, autenticação e storage. Projeto principal informado na região sa-east-1 (São Paulo, Brasil).',
+      'Cloudflare, Inc. (Estados Unidos) — armazenamento e distribuição de arquivos de mídia do aplicativo (áudios, vídeos e imagens) por meio de rede de distribuição de conteúdo (CDN). Ao acessar esses arquivos, o seu endereço IP e dados técnicos da conexão são processados pela Cloudflare exclusivamente para a entrega do conteúdo. A transferência internacional é amparada pelo art. 33, IX, da LGPD, com cláusulas contratuais padrão adotadas pelo operador.',
       'Expo Push Service — intermediação técnica do envio de notificações push para FCM/APNs.',
       'Google Firebase Cloud Messaging (FCM) — entrega de notificações em Android e identificadores técnicos relacionados à instalação/registro.',
       'Apple Push Notification Service (APNs) — entrega de notificações em iOS.',
@@ -177,7 +178,7 @@ export default function PrivacyPage() {
   return (
     <LegalLayout
       title="Política de Privacidade"
-      updated="15/09/2026"
+      updated="22/09/2026"
       sections={sections}
     />
   );
