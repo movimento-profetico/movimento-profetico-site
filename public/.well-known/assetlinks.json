@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "br.org.movimentoprofetico.app",
+      "sha256_cert_fingerprints": [
+        "CA:19:11:16:6F:52:9A:63:A8:64:90:39:D8:5B:3E:DC:57:A3:98:8B:52:48:C2:43:60:09:C7:A6:E0:94:5C:29"
+      ]
+    }
+  }
+]
