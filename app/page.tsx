@@ -11,6 +11,24 @@ import { hasStoreLinks } from './site-config';
 
 type Platform = 'ios' | 'android' | 'desktop';
 
+// Telas reais do app exibidas na home. A ordem é a da composição: a do meio
+// recebe destaque no desktop. O `alt` descreve o conteúdo da tela, e não
+// repete o título embutido na arte, para não duplicar em leitor de tela.
+const PREVIEW_SHOTS = [
+  {
+    alt: 'Tela inicial do aplicativo com a palavra do dia e as publicações mais recentes da igreja.',
+    base: 'preview-palavra',
+  },
+  {
+    alt: 'Biblioteca de áudios do aplicativo, com mensagens e devocionais para ouvir e baixar.',
+    base: 'preview-ouca',
+  },
+  {
+    alt: 'Tela de lives do aplicativo, com a transmissão ao vivo e as próximas programações.',
+    base: 'preview-lives',
+  },
+] as const;
+
 export default function Home() {
   const [platform, setPlatform] = useState<Platform>('desktop');
 
@@ -66,34 +84,28 @@ export default function Home() {
 
         <div className="hero-visual">
           <div className="visual-glow" />
-          {/* TODO(design): mockup profissional do app (screenshots reais).
-              Placeholder temporário — não bloqueia o deploy. Ver
-              scratchpad/site-lgpd-jsx/TODOS_ADVOGADO.md (ticket de design). */}
-          <div
-            role="img"
-            aria-label="Prévia do aplicativo Movimento Profético (em breve)"
-            style={{
-              width: '100%',
-              maxWidth: 560,
-              aspectRatio: '3 / 2',
-              borderRadius: 24,
-              background:
-                'linear-gradient(135deg, #0f5132 0%, #1a7a4e 55%, #2fae6d 100%)',
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              justifyContent: 'center',
-              gap: 6,
-              color: '#eafff4',
-              textAlign: 'center',
-              padding: 24,
-              boxShadow: '0 24px 60px -20px rgba(15, 81, 50, 0.55)',
-            }}
-          >
-            <strong style={{ fontSize: 20, letterSpacing: '0.2px' }}>
-              Prévia do aplicativo
-            </strong>
-            <span style={{ fontSize: 14, opacity: 0.85 }}>em breve</span>
+          {/* Telas reais do app. As imagens já trazem o título embutido, então
+              não há legenda em HTML — duplicaria o texto. width/height são as
+              dimensões da arte de origem (1284×2778): servem só para fixar a
+              proporção e evitar layout shift; o tamanho real vem do CSS. */}
+          <div className="preview-stage">
+            <ul className="preview-shots">
+              {PREVIEW_SHOTS.map((shot, index) => (
+                <li className="preview-shot" key={shot.base}>
+                  <img
+                    alt={shot.alt}
+                    decoding="async"
+                    fetchPriority={index === 0 ? 'high' : 'auto'}
+                    height={2778}
+                    loading={index === 0 ? 'eager' : 'lazy'}
+                    sizes="(max-width: 720px) 62vw, 30vw"
+                    src={`/preview/${shot.base}-480.webp`}
+                    srcSet={`/preview/${shot.base}-480.webp 1x, /preview/${shot.base}-960.webp 2x`}
+                    width={1284}
+                  />
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </section>
