@@ -238,8 +238,12 @@ h1 {
   margin-inline: auto;
   padding: 24px;
   border-radius: 24px;
-  background: linear-gradient(135deg, #0f5132 0%, #1a7a4e 55%, #2fae6d 100%);
-  box-shadow: 0 24px 60px -20px rgba(15, 81, 50, 0.55);
+  /* Surface claro, o mesmo token de `.experience` e `.legal-highlight`. As
+     artes já têm fundo verde-escuro próprio; sobre um bloco verde elas
+     perdiam a borda e se dissolviam umas nas outras. */
+  background: var(--mint);
+  border: 1px solid var(--border);
+  box-shadow: 0 24px 60px -24px rgba(15, 81, 50, 0.28);
 }
 .preview-shots {
   display: flex;

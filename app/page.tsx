@@ -16,12 +16,12 @@ type Platform = 'ios' | 'android' | 'desktop';
 // repete o título embutido na arte, para não duplicar em leitor de tela.
 const PREVIEW_SHOTS = [
   {
-    alt: 'Tela inicial do aplicativo com a palavra do dia e as publicações mais recentes da igreja.',
-    base: 'preview-palavra',
-  },
-  {
     alt: 'Biblioteca de áudios do aplicativo, com mensagens e devocionais para ouvir e baixar.',
     base: 'preview-ouca',
+  },
+  {
+    alt: 'Tela inicial do aplicativo com a palavra do dia e as publicações mais recentes da igreja.',
+    base: 'preview-palavra',
   },
   {
     alt: 'Tela de lives do aplicativo, com a transmissão ao vivo e as próximas programações.',
