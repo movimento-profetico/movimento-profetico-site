@@ -1,0 +1,15 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appIDs": ["ST757NCYN2.br.org.movimentoprofetico.app"],
+        "components": [
+          { "/": "/live/*" },
+          { "/": "/audio/*" },
+          { "/": "/post/*" }
+        ]
+      }
+    ]
+  }
+}

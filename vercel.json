@@ -1,4 +1,27 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "framework": "nextjs"
+  "framework": "nextjs",
+  "headers": [
+    {
+      "source": "/.well-known/apple-app-site-association",
+      "headers": [{ "key": "Content-Type", "value": "application/json" }]
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/post/:id",
+      "destination": "https://movimento-profetico-admin.vercel.app/post/:id",
+      "permanent": true
+    },
+    {
+      "source": "/audio/:id",
+      "destination": "https://movimento-profetico-admin.vercel.app/audio/:id",
+      "permanent": true
+    },
+    {
+      "source": "/live/:id",
+      "destination": "https://movimento-profetico-admin.vercel.app/live/:id",
+      "permanent": true
+    }
+  ]
 }
