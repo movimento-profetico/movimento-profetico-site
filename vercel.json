@@ -11,17 +11,17 @@
     {
       "source": "/post/:id",
       "destination": "https://movimento-profetico-admin.vercel.app/post/:id",
-      "permanent": true
+      "permanent": false
     },
     {
       "source": "/audio/:id",
       "destination": "https://movimento-profetico-admin.vercel.app/audio/:id",
-      "permanent": true
+      "permanent": false
     },
     {
       "source": "/live/:id",
       "destination": "https://movimento-profetico-admin.vercel.app/live/:id",
-      "permanent": true
+      "permanent": false
     }
   ]
 }

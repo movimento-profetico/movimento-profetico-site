@@ -41,7 +41,7 @@ Ambos declaram somente os três prefixos de conteúdo público: `/live/*`, `/aud
 ### Redirect de `/post`, `/audio` e `/live`
 
 Estas rotas **não existem neste site**: quem abre o link sem o app instalado é redirecionado
-(**308**, via `redirects` no `vercel.json`) para as páginas públicas equivalentes do painel
+(**307**, via `redirects` no `vercel.json`) para as páginas públicas equivalentes do painel
 administrativo, que renderizam o conteúdo real e as tags Open Graph do preview:
 
 ```
@@ -53,6 +53,12 @@ administrativo, que renderizam o conteúdo real e as tags Open Graph do preview:
 **Dependência externa:** este site depende das rotas públicas `/post`, `/audio` e `/live` do projeto
 `movimento-profetico-admin`. Se elas mudarem de caminho, deixarem de ser públicas ou passarem a
 exigir autenticação, todo link compartilhado quebra.
+
+**Por que 307 e não 308:** `permanent: false` no `vercel.json` produz **307** (temporário) e
+`permanent: true` produziria **308** (permanente). O destino é provisório, e 308 é cacheado de forma
+agressiva e duradoura por navegadores e por crawlers de preview — um link compartilhado com o 308 em
+cache continuaria indo para o domínio legado mesmo depois de a troca ser feita. **Não altere para
+`permanent: true`** enquanto o destino não for definitivo.
 
 > **O destino acima é temporário e deve mudar.** O domínio `movimento-profetico-admin.vercel.app` é
 > legado (ver `docs/DOMINIOS.md` no repositório do app). Quando o painel receber um domínio próprio
