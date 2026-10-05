@@ -9,6 +9,18 @@
   ],
   "redirects": [
     {
+      "source": "/baixar",
+      "has": [{ "type": "header", "key": "user-agent", "value": ".*Android.*" }],
+      "destination": "https://play.google.com/store/apps/details?id=br.org.movimentoprofetico.app",
+      "statusCode": 302
+    },
+    {
+      "source": "/baixar",
+      "has": [{ "type": "header", "key": "user-agent", "value": ".*(iPhone|iPad|iPod).*" }],
+      "destination": "https://apps.apple.com/br/app/id6817124101",
+      "statusCode": 302
+    },
+    {
       "source": "/post/:id",
       "destination": "https://movimento-profetico-admin.vercel.app/post/:id",
       "permanent": false

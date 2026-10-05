@@ -579,3 +579,13 @@ footer strong {
 .open-app-button:hover { background: #0a3b24; }
 .legal-section .store-buttons { max-width: none; }
 @media (max-width: 620px) { .legal-highlight { padding: 20px; } .open-app-button { width: 100%; } }
+
+/* Página /baixar — fallback de desktop e user-agents que o redirect não pegou.
+   Coluna única e centrada, com os mesmos tokens do resto do site. */
+.download-shell { width: min(560px, calc(100% - 40px)); margin: 0 auto; padding: 64px 0 96px; text-align: center; }
+.download-mark { width: 112px; height: 112px; border-radius: 28px; background: var(--mint); padding: 14px; }
+.download-shell h1 { margin: 28px 0 0; font-size: clamp(1.85rem, 4.4vw, 2.5rem); line-height: 1.12; letter-spacing: -0.02em; }
+.download-subtitle { margin: 14px auto 0; max-width: 42ch; color: var(--muted); font-size: 1.02rem; line-height: 1.55; }
+.download-shell .store-buttons { grid-template-columns: 1fr; text-align: left; }
+.download-note { margin: 24px 0 0; color: var(--muted); font-size: 0.82rem; }
+@media (min-width: 620px) { .download-shell .store-buttons { grid-template-columns: 1fr 1fr; } }
